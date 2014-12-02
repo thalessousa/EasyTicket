@@ -11,12 +11,9 @@ public class Administrador extends Usuario implements Menu, Autorizavel {
 
 	}
 
-
-	/**
-	 * @see Principal.Usuario.Autorizavel#checarautorizacao()
-	 */
+       @Override
 	public boolean checarautorizacao() {
-		return false;
+		return true;
 	}
 
 }

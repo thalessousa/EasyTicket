@@ -1,9 +1,9 @@
-package Principal.Usuario;
+package Usuario;
 
 public interface Comprar {
 
 	public void compraringresso();
-
+        
 	public void comprardiscovinil();
 
 	public void comprardiscocompacto();

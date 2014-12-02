@@ -1,4 +1,4 @@
-package Principal.Usuario;
+package Usuario;
 
 public interface Menu {
 
