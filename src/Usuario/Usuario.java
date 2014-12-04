@@ -1,6 +1,6 @@
 package Usuario;
 
-public class Usuario {
+public abstract class Usuario {
 
 	protected int senha;
 	protected int login;

@@ -3,13 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/thalessousa/Documents/GitHub/EasyTicket/src/Usuario/Autorizavel.java</file>
-            <file>file:/C:/Users/thalessousa/Documents/GitHub/EasyTicket/src/Usuario/Moderador.java</file>
-            <file>file:/C:/Users/thalessousa/Documents/GitHub/EasyTicket/src/Usuario/Usuario.java</file>
             <file>file:/C:/Users/thalessousa/Documents/GitHub/EasyTicket/src/Usuario/Administrador.java</file>
-            <file>file:/C:/Users/thalessousa/Documents/GitHub/EasyTicket/src/Usuario/Menu.java</file>
+            <file>file:/C:/Users/thalessousa/Documents/GitHub/EasyTicket/src/Pessoa/Musico.java</file>
+            <file>file:/C:/Users/thalessousa/Documents/GitHub/EasyTicket/src/Usuario/Autenticavel.java</file>
+            <file>file:/C:/Users/thalessousa/Documents/GitHub/EasyTicket/src/Pessoa/Banda.java</file>
             <file>file:/C:/Users/thalessousa/Documents/GitHub/EasyTicket/src/Usuario/Cliente.java</file>
             <file>file:/C:/Users/thalessousa/Documents/GitHub/EasyTicket/src/Usuario/Comprar.java</file>
+            <file>file:/C:/Users/thalessousa/Documents/GitHub/EasyTicket/src/Espaço/Show.java</file>
+            <file>file:/C:/Users/thalessousa/Documents/GitHub/EasyTicket/src/Produto/Produto.java</file>
+            <file>file:/C:/Users/thalessousa/Documents/GitHub/EasyTicket/src/Produto/Ingresso.java</file>
         </group>
     </open-files>
 </project-private>

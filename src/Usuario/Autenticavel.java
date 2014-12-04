@@ -1,6 +1,6 @@
 package Usuario;
 
-public interface Autorizavel {
+public interface Autenticavel {
 
 	public boolean checarautorizacao();
 

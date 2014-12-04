@@ -2,18 +2,18 @@ package Pessoa;
 
 public class Musico extends Pessoa {
 
-	protected String nomeartistico;
-	protected String genero;
-	protected String gravadora;
+	private int integrantes;
+	private int quantidadedediscos;
+        private String genero,gravadora;
 
     public Musico() {
     }
 
-    public Musico(String nomeartistico, String genero, String gravadora, String nome, int idade, String sexo) {
+    public Musico(int integrantes, int quantidadedediscos, String genero, String gravadora, String nome, int idade, String sexo) {
         super(nome, idade, sexo);
-        this.nomeartistico = nomeartistico;
+        this.integrantes = integrantes;
+        this.quantidadedediscos = quantidadedediscos;
         this.genero = genero;
         this.gravadora = gravadora;
     }
-
 }

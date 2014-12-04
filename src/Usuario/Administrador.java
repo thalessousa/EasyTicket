@@ -1,7 +1,7 @@
 package Usuario;
 
 
-public class Administrador extends Usuario implements Menu, Autorizavel {
+public class Administrador extends Usuario implements Menu, Autenticavel {
 
 	public void adicionarshow() {
 
@@ -15,5 +15,8 @@ public class Administrador extends Usuario implements Menu, Autorizavel {
 	public boolean checarautorizacao() {
 		return true;
 	}
+    @Override
+    public void menu (){
+    }
 
 }

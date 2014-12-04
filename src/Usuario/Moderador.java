@@ -1,6 +1,6 @@
 package Usuario;
 
-public class Moderador extends Usuario {
+public class Moderador extends Usuario implements Menu {
 
     public Moderador() {
     }
@@ -11,5 +11,8 @@ public class Moderador extends Usuario {
 
     public void criarusuario(){
     }
-
+    @Override
+    public void menu (){
+        
+    }
 }
