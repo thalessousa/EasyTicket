@@ -3,13 +3,18 @@ package Pessoa;
 import java.util.Scanner;
 
 public class Banda {
-
+        
 	private int integrantes;
 	private int quantidadedediscos;
         private String genero,gravadora,nome;
         static Scanner input = new Scanner(System.in);
 
     public Banda() {
+        this.integrantes = 0;
+        this.quantidadedediscos = 0;
+        this.genero = "null";
+        this.gravadora = "null";
+        this.nome = "null";
     }
 
     public Banda(int integrantes, int quantidadedediscos, String genero, String gravadora, String nome) {
@@ -46,6 +51,7 @@ public class Banda {
         this.quantidadedediscos = input.nextInt();
         while(this.quantidadedediscos<=0){System.out.println("Numero invalido,insira novamente\n");
         this.quantidadedediscos = input.nextInt();}
+        
         
     }
     public void imprimirdados(){

@@ -1,7 +1,11 @@
 package Espaço;
 
-public class Show  {
+import Pessoa.Banda;
+import java.util.ArrayList;
 
+public class Show  {
+        
+        private static ArrayList<Banda> listabandas;
 	private String endereco,nome;
 	private double precoingresso;
 	private boolean localparaestacionar;
@@ -24,5 +28,5 @@ public class Show  {
         this.venda = venda;
         this.pagamento = pagamento;
     }
-
+    
 }

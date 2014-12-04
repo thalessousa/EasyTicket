@@ -4,8 +4,7 @@ public class Cliente extends Usuario implements Menu, Comprar, Autenticavel {
 
 	private static String nome,email;
 	private int cpf;
-
-   
+        
         public Cliente() {
     }
 
