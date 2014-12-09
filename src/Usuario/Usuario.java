@@ -3,13 +3,13 @@ package Usuario;
 import Pessoa.Banda;
 import java.util.ArrayList;
 import Espaço.Show;
-import javax.swing.JOptionPane;
 
-public abstract class Usuario implements Menu {
+public abstract class Usuario implements Menu,Autenticavel {
 
 	protected int senha;
         public static ArrayList<Banda> listabandas = new ArrayList<>();
         public static ArrayList<Show> listashows = new ArrayList<>();
+        public static ArrayList<Cliente> listacliente = new ArrayList<>();
 
 	public Usuario() {
 
@@ -41,7 +41,13 @@ public abstract class Usuario implements Menu {
         public static void login(){
             
             }
+        @Override
         public int menu(){
             return 0; 
         }   
+
+    @Override
+    public boolean checarautorizacao() {
+        return true;
+    }
 }

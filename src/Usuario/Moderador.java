@@ -1,11 +1,8 @@
 package Usuario;
 
-import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
-public class Moderador extends Usuario implements Menu {
-    
-    public static ArrayList<Cliente> listacliente = new ArrayList<>();
-    public static ArrayList<Administrador> listaadm = new ArrayList<>();
+public class Moderador extends Usuario implements Menu, Autenticavel {
 
     public Moderador() {
         this.senha = 4154;
@@ -13,19 +10,43 @@ public class Moderador extends Usuario implements Menu {
 
     public Moderador(int senha, int login) {
         super(senha);
-        
+
     }
 
-    public void criarcliente(Cliente novo){
-        listacliente.add(novo);
-        
+    public void criarcliente(Cliente cliente) {
+        Cliente.setCliente();
+        listacliente.add(cliente);
+
     }
-    public void criaradm(Administrador adm){
-        listaadm.add(adm);
-        
-    }
+
     @Override
-    public int menu (){
-        return 0;  
+    public boolean checarautorizacao() {
+        if (senha != this.senha) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public int menu(Moderador moderador, Cliente cliente) {
+
+        int aux, opcao = 0;
+
+        do {
+            senha = Integer.parseInt(JOptionPane.showInputDialog(null, "Insira a senha do moderador ou 0 para sair"));
+        } while (checarautorizacao() == false);
+        
+        do {
+            opcao = Integer.parseInt(JOptionPane.showInputDialog(null, "0 - Sair\n1 - Criar cliente  "));
+            switch (opcao) {
+                case 0:
+                    break;
+                case 1:
+                    moderador.criarcliente(cliente);
+                    break;
+            }
+        } while (opcao != 0);
+        JOptionPane.showMessageDialog(null, "Saiu da moderação ");
+        return 0;
     }
 }

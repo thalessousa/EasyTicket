@@ -9,8 +9,8 @@ public class Show  {
         
         private static ArrayList<Banda> listabandas;
 	private String endereco,nome,localparaestacionar;
-	private double precoingresso;
-	private int tamanhoestacionamento,capacidade;
+	private double precoingresso,capacidade;
+	private int tamanhoestacionamento;
 	private enum locaisdevenda{TICKETMASTER,QUIOSQUE,ONLINE}
         private locaisdevenda venda;
 	private enum formasdepagamento{MASTERCARD,AMEX,VISA,DINHEIRO,PAYPAL}
@@ -33,6 +33,8 @@ public class Show  {
         public void setAtributos() {
             
          int aux;
+         
+         this.nome = JOptionPane.showInputDialog("Insira o nome do local ");
 
          this.endereco = JOptionPane.showInputDialog("Insira o endereço do show ");      
          aux = Integer.parseInt(JOptionPane.showInputDialog("Insira o preço do ingresso do show "));
@@ -41,12 +43,12 @@ public class Show  {
             this.precoingresso= aux;
             
         this.localparaestacionar = JOptionPane.showInputDialog("Existe local para estacionar? ");
-        if(this.localparaestacionar == "Sim" && this.localparaestacionar == "sim")
+        if(this.localparaestacionar.equalsIgnoreCase("sim"))
         {
         aux = Integer.parseInt(JOptionPane.showInputDialog("Insira a quantidade de vagas no estacionamento "));
-           while(aux<0)     
+           while(aux<0)    
             aux = Integer.parseInt(JOptionPane.showInputDialog("Valor incorreto, insira novamente"));
-                this.tamanhoestacionamento = aux;
+                this.tamanhoestacionamento = aux;}
         while(this.tamanhoestacionamento<=0){aux = Integer.parseInt(JOptionPane.showInputDialog("Numero invalido,insira novamente"));
         this.tamanhoestacionamento = aux;
         }
@@ -57,13 +59,13 @@ public class Show  {
             this.capacidade = aux;
         
      }
-  }
        public void imprimirdados(){
-        JOptionPane.showMessageDialog(null," " +this.toString());
+        JOptionPane.showMessageDialog(null, this.toString());
     }
 
+       
     @Override
     public String toString() {
-        return  "Show{" + "Endereco = " + endereco + ",\n Nome = " + nome + ",\n Possui estacionamento? = " + localparaestacionar + ",\n Preço do Ingresso = " + precoingresso + ",\n Tamanho do Estacionamento = " + tamanhoestacionamento + ",\n Capacidade = " + capacidade + ",\n Venda = " + venda.ONLINE + " , " + venda.QUIOSQUE + " , " + venda.TICKETMASTER + ",\n Formas de Pagamento = " + pagamento.AMEX + " , " + pagamento.DINHEIRO + " , " + pagamento.MASTERCARD + " , " + pagamento.PAYPAL + " , " + pagamento.VISA + '}';
+        return  "Show\n " + "Endereco = " + endereco + "\n Nome = " + nome + "\n Possui estacionamento? = " + localparaestacionar + "\n Preço do Ingresso = " + precoingresso + "\n Tamanho do Estacionamento = " + tamanhoestacionamento + "\n Capacidade = " + capacidade + "\n Venda = " + venda.ONLINE + " , " + venda.QUIOSQUE + " , " + venda.TICKETMASTER + "\n Formas de Pagamento = " + pagamento.AMEX + " , " + pagamento.DINHEIRO + " , " + pagamento.MASTERCARD + " , " + pagamento.PAYPAL + " , " + pagamento.VISA;
     }      
 }
