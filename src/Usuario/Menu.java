@@ -2,6 +2,6 @@ package Usuario;
 
 public interface Menu {
     
-    public abstract void menu ();
+    public abstract int menu ();
 
 }

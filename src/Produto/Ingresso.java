@@ -20,6 +20,4 @@ public class Ingresso extends Produto {
         this.preco = preco;
         this.IDVALIDACAO = 6829598;
     }
-
-
 }

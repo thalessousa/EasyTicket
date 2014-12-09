@@ -9,7 +9,7 @@ public class Cliente extends Usuario implements Menu, Comprar, Autenticavel {
     }
 
     public Cliente(String nome, int cpf, int senha, int login, String email) {
-        super(senha, login);
+        super(senha);
         Cliente.nome = nome;
         this.cpf = cpf;
         Cliente.email = email;
@@ -40,7 +40,8 @@ public class Cliente extends Usuario implements Menu, Comprar, Autenticavel {
 		return false;
 	}
     @Override
-    public void menu (){
+    public int menu (){
+            return 0;
         
     }
 }

@@ -1,22 +1,29 @@
 package Main;
 import Usuario.*;
 import Pessoa.Banda;
-import java.util.Scanner;
+import Espaço.Show;
+import javax.swing.JOptionPane;
 
 public class Main {
       
-	private static int opcao=1;
-        static Scanner input = new Scanner(System.in);
-        public static void main(String[] args){
-        System.out.println("Bem vindo\n");
-        Banda nova = new Banda();
-        Banda nova2 = new Banda();
-        Banda nova3 = new Banda();
+        public static void main(String[] args){  
+        int opcao = 0;
+        Cliente cliente = new Cliente();     
         Administrador adm = new Administrador();
-        Administrador.adicionarbanda(nova);
-        Administrador.adicionarbanda(nova2);
-        Administrador.adicionarbanda(nova3);
-         adm.imprimirlista();
-
+        Moderador moderador = new Moderador();
+        Show show = new Show();
+        Banda banda = new Banda();
+        JOptionPane.showMessageDialog(null, "Bem vindo!"); 
+        do{
+          opcao = Integer.valueOf(JOptionPane.showInputDialog(null, "0 - Sair\n1 - Area de administracao\n2 - Moderação\n3 - Login cliente"));
+          switch(opcao){
+            case 0: break;
+            case 1: adm.menu();
+            case 2: moderador.menu();
+            case 3: cliente.menu();
         }
+        }
+        while(opcao!=0);
+        JOptionPane.showMessageDialog(null, "Obrigado, volte sempre!"); 
+}
 }

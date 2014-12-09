@@ -1,13 +1,12 @@
 package Pessoa;
 
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class Banda {
         
 	private int integrantes;
 	private int quantidadedediscos;
         private String genero,gravadora,nome;
-        static Scanner input = new Scanner(System.in);
 
     public Banda() {
         this.integrantes = 0;
@@ -27,39 +26,35 @@ public class Banda {
 
     public void setAtributos() {
         
-        System.out.println("Insira o nome da banda \n");
-        this.nome = input.nextLine();
-        while(this.nome.contains("[0123456789]")){System.out.println("Nome de gravadora invalido,insira novamente\n");
-        this.nome = input.nextLine();}
-               
-        System.out.println("Insira a gravadora da banda \n");
-        this.gravadora = input.nextLine();
-        while(this.gravadora.contains("[0123456789]")){System.out.println("Nome de gravadora invalido,insira novamente\n");
-        this.gravadora = input.nextLine();}
+        int aux;
         
-        System.out.println("Insira o genero da banda \n");
-        this.genero = input.next();
-        while(this.genero.contains("[0123456789]")){System.out.println("Genero invalido,insira novamente\n");
-        this.genero = input.next();}
-        
-        System.out.println("Insira a quantidade de integrantes da banda \n");
-        this.integrantes = input.nextInt();
-        while(this.integrantes<=0){System.out.println("Numero invalido,insira novamente\n");
-        this.integrantes = input.nextInt();}
-        
-        System.out.println("Insira a quantidade de discos lançados da banda \n");
-        this.quantidadedediscos = input.nextInt();
-        while(this.quantidadedediscos<=0){System.out.println("Numero invalido,insira novamente\n");
-        this.quantidadedediscos = input.nextInt();}
-        
+        this.nome = JOptionPane.showInputDialog(null, "Insira o nome da banda ");
+        while(this.nome.contains("[0123456789]")){this.nome = JOptionPane.showInputDialog(null,"Nome da banda invalido,insira novamente");
+        }       
+        this.gravadora = JOptionPane.showInputDialog(null,"Insira a gravadora da banda ");
+        while(this.gravadora.contains("[0123456789]")){this.gravadora = JOptionPane.showInputDialog(null,"Nome de gravadora invalido,insira novamente");
+        }
+        this.genero = JOptionPane.showInputDialog(null,"Insira o genero da banda ");
+        while(this.genero.contains("[0123456789]")){this.genero = JOptionPane.showInputDialog(null,"Genero invalido,insira novamente");
+        }
+        aux = Integer.parseInt(JOptionPane.showInputDialog(null,"Insira a quantidade de integrantes da banda "));
+            while(aux<0)
+            aux = Integer.parseInt(JOptionPane.showInputDialog("Valor incorreto, insira novamente"));
+              this.integrantes= aux;
+ 
+        aux = Integer.parseInt(JOptionPane.showInputDialog(null,"Insira a quantidade de discos lançados da banda "));
+            while(aux<0)
+            aux = Integer.parseInt(JOptionPane.showInputDialog("Valor incorreto, insira novamente"));
+              this.quantidadedediscos= aux;
         
     }
+    
     public void imprimirdados(){
-        System.out.println(this.toString());
+        JOptionPane.showMessageDialog(null," " +this.toString());
 
     }
     @Override
     public String toString() {
-        return "Banda{" + "integrantes=" + integrantes + ", quantidadedediscos=" + quantidadedediscos + ", genero=" + genero + ", gravadora=" + gravadora + ", nome=" + nome + '}';
+        return "Banda{" + "Nome = " + nome + ",\n Quantida de Discos = " + quantidadedediscos + ",\n Genero = " + genero + ",\n Gravadora = " + gravadora + ",\n Integrantes = " + integrantes + '}';
     }
 }
