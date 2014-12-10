@@ -29,7 +29,7 @@ public class Main {
                     moderador.menu(moderador,cliente);
                     break;
                 case 3:
-                    cliente.menu(cliente,show);
+                    cliente.menu(cliente,show,adm,banda);
                     break;
             }
         } while (opcao != 0);

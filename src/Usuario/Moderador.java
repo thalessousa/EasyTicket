@@ -30,7 +30,7 @@ public class Moderador extends Usuario implements Menu, Autenticavel {
                 return 0;
             }
         } while (checarautorizacao() == false);
-
+        JOptionPane.showMessageDialog(null, "Login efetuado!");
         do {
             opcao = Integer.parseInt(JOptionPane.showInputDialog(null, "0 - Sair\n1 - Criar cliente  "));
             switch (opcao) {

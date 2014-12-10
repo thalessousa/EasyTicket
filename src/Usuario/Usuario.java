@@ -6,7 +6,7 @@ import Espaço.Show;
 import Produto.Ingresso;
 import javax.swing.JOptionPane;
 
-public abstract class Usuario implements Menu,Autenticavel {
+public abstract class Usuario implements Menu,Autenticavel,Comprar {
 
 	protected int senha;
         public static ArrayList<Banda> listabandas = new ArrayList<>();
@@ -51,6 +51,26 @@ public abstract class Usuario implements Menu,Autenticavel {
     @Override
     public boolean checarautorizacao() {
         return true;
+    }
+
+    @Override
+    public void compraringresso() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void comprardiscovinil() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void comprardiscocompacto() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void comprardiscodvd() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

@@ -40,7 +40,7 @@ public class Show {
 
     public void setAtributos(Ingresso ingresso) {
 
-        int aux;
+        double aux;
 
         this.nome = JOptionPane.showInputDialog("Insira o nome do local ");
         while (validar_nome(nome) == false) {
@@ -56,15 +56,21 @@ public class Show {
         this.precoingresso = aux;
 
         this.localparaestacionar = JOptionPane.showInputDialog("Existe local para estacionar? ");
-
         if (this.localparaestacionar.equalsIgnoreCase("sim")) {
             aux = Integer.parseInt(JOptionPane.showInputDialog("Insira a quantidade de vagas no estacionamento "));
-            this.tamanhoestacionamento = aux;
-
+            this.tamanhoestacionamento = (int) aux;
+            while (validar_int(tamanhoestacionamento) == false) {
+                aux = Integer.parseInt(JOptionPane.showInputDialog(null, "Numero invalido,insira novamente"));
+                this.tamanhoestacionamento = (int) aux;
+            }
         }
 
         aux = Integer.parseInt(JOptionPane.showInputDialog("Insira a capacidade do local "));
         this.capacidade = aux;
+        while (validar_int(capacidade) == false) {
+            aux = Integer.parseInt(JOptionPane.showInputDialog(null, "Numero invalido,insira novamente"));
+            this.capacidade = (int) aux;
+        }
 
         ingresso.data = JOptionPane.showInputDialog("Insira a data do show ");
         while (validar_data(ingresso.data) == false) {
@@ -79,6 +85,11 @@ public class Show {
 
     public boolean validar_data(String arg3) {
         return arg3.matches("[0-9]{2}?(/)[0-9]{2}?(/)[0-9]{4}");
+
+    }
+
+    public boolean validar_int(double arg2) {
+        return arg2 > 0;
     }
 
     public void imprimirdados() {
