@@ -8,7 +8,7 @@ public class Produto {
     }
 
     public Produto(String nome) {
-        this.nome = nome;
+        this.nome = "";
     }
 
 }

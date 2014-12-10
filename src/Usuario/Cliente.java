@@ -16,6 +16,11 @@ public class Cliente extends Usuario implements Menu, Comprar, Autenticavel {
         this.venda = venda;
     }
 
+    public Cliente(Cliente copia) {
+        this.senha = copia.senha;
+        this.venda = copia.venda;
+    }
+
     private static String nome, email, login;
 
     private enum locaisdevenda {

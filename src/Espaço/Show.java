@@ -25,9 +25,6 @@ public class Show {
     private formasdepagamento pagamento;
 
     public Show() {
-    }
-
-    public Show(String endereco, String nome, double precoingresso, String localparaestacionar, int tamanhoestacionamento, int capacidade, locaisdevenda venda, formasdepagamento pagamento) {
         this.endereco = "";
         this.nome = "";
         this.precoingresso = 0.00;
@@ -38,18 +35,40 @@ public class Show {
         this.pagamento = pagamento;
     }
 
+    public Show(String endereco, String nome, String localparaestacionar, double precoingresso, double capacidade, int tamanhoestacionamento, locaisdevenda venda, formasdepagamento pagamento) {
+        this.endereco = endereco;
+        this.nome = nome;
+        this.localparaestacionar = localparaestacionar;
+        this.precoingresso = precoingresso;
+        this.capacidade = capacidade;
+        this.tamanhoestacionamento = tamanhoestacionamento;
+        this.venda = venda;
+        this.pagamento = pagamento;
+    }
+
+    public Show(Show copia) {
+        this.endereco = copia.endereco;
+        this.nome = copia.nome;
+        this.precoingresso = copia.precoingresso;
+        this.localparaestacionar = copia.localparaestacionar;
+        this.tamanhoestacionamento = copia.tamanhoestacionamento;
+        this.capacidade = copia.capacidade;
+        this.venda = copia.venda;
+        this.pagamento = copia.pagamento;
+    }
+
     public void setAtributos(Ingresso ingresso) {
 
         double aux;
 
-        this.nome = JOptionPane.showInputDialog("Insira o nome do local ");
+        this.nome = JOptionPane.showInputDialog("Insira o nome do local (Exemplo Nome1 Nome2)");
         while (validar_nome(nome) == false) {
-            this.nome = JOptionPane.showInputDialog(null, "Nome do local invalido,insira novamente");
+            this.nome = JOptionPane.showInputDialog(null, "Nome do local invalido,insira novamente (Exemplo Nome1 Nome2)");
         }
 
         this.endereco = JOptionPane.showInputDialog("Insira o endereço do show ");
         while (validar_nome(endereco) == false) {
-            this.endereco = JOptionPane.showInputDialog(null, "Nome da banda invalido,insira novamente");
+            this.endereco = JOptionPane.showInputDialog(null, "Nome da banda invalido,insira novamente ");
         }
 
         aux = Integer.parseInt(JOptionPane.showInputDialog("Insira o preço do ingresso do show "));

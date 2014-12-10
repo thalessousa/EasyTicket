@@ -14,6 +14,16 @@ public class Administrador extends Usuario implements Menu, Autenticavel {
 
     }
 
+    public Administrador(Administrador copia) {
+        super(copia);
+        this.opcao = copia.opcao;
+    }
+    public Administrador(int opcao, int senha) {
+        super(senha);
+        this.opcao = 0;
+    }
+    
+
     public static void adicionarbanda(Banda banda) {
         int f = 0;
         banda.setAtributos();

@@ -1,6 +1,6 @@
 package Produto;
 
-import Espaço.Show;
+
 import javax.swing.JOptionPane;
 public class Ingresso extends Produto {
 
@@ -11,6 +11,17 @@ public class Ingresso extends Produto {
         this.data = "";
         this.IDVALIDACAO = 6829598;
     }
+
+    public Ingresso(String data, int IDVALIDACAO) {
+        this.data = data;
+        this.IDVALIDACAO = IDVALIDACAO;
+    }
+    public Ingresso(Ingresso copia){
+        this.data = copia.data;
+        this.nome = copia.nome;
+        this.IDVALIDACAO = 6829598;
+    }
+    
 
     public void setData(String data) {
         this.data = data;

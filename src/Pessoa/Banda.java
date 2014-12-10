@@ -2,7 +2,7 @@ package Pessoa;
 
 import javax.swing.JOptionPane;
 
-public class Banda {
+public class Banda extends Pessoa {
 
     private int integrantes;
     public int quantidadedediscos;
@@ -23,6 +23,14 @@ public class Banda {
         this.genero = genero;
         this.gravadora = gravadora;
         Banda.nome = nome;
+    }
+
+    public Banda(Banda copia) {
+        this.integrantes = copia.integrantes;
+        this.quantidadedediscos = copia.quantidadedediscos;
+        this.genero = copia.genero;
+        this.gravadora = copia.gravadora;
+        Banda.nome = copia.nome;
     }
 
     public void setAtributos() {
@@ -46,7 +54,7 @@ public class Banda {
         this.quantidadedediscos = aux;
     }
 
-    public boolean validar_nome2(String arg3) {
+    public static boolean validar_nome2(String arg3) {
         return arg3.matches("[a-zA-Z]{1,10}(\\s)[a-zA-Z]{1,10}");
     }
 

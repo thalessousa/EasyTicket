@@ -44,4 +44,5 @@ public class Moderador extends Usuario implements Menu, Autenticavel {
         JOptionPane.showMessageDialog(null, "Saiu da moderação ");
         return 0;
     }
+
 }

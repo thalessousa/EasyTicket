@@ -18,7 +18,10 @@ public abstract class Usuario implements Menu,Autenticavel,Comprar {
 	}
 
         public Usuario(int senha) {
-           this.senha = senha;
+           this.senha = 0;
+        }
+        public Usuario(Usuario copia){
+            this.senha = copia.senha;
         }
 
         public void imprimirlistabandas(){
