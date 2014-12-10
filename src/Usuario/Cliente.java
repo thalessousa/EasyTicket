@@ -1,20 +1,19 @@
 package Usuario;
 
+import Espaço.Show;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class Cliente extends Usuario implements Menu, Comprar, Autenticavel {
 
     private static String nome, email, login;
-    private static int cpf;
 
     public Cliente() {
     }
 
-    public Cliente(String nome, int cpf, int senha, int login, String email) {
+    public Cliente(String nome, int senha, int login, String email) {
         Cliente.login = "";
         Cliente.nome = "";
-        Cliente.cpf = 0;
         Cliente.email = "";
     }
 
@@ -22,8 +21,15 @@ public class Cliente extends Usuario implements Menu, Comprar, Autenticavel {
         return login;
     }
     
+    
     @Override
     public void compraringresso() {
+        String aux;
+        
+        aux = JOptionPane.showInputDialog(null, "Deseja comprar ingresso para este show? ");
+        if(aux.equalsIgnoreCase("sim")){
+        JOptionPane.showMessageDialog(null, "O ingresso custa");
+        }
     }
 
     @Override
@@ -40,13 +46,13 @@ public class Cliente extends Usuario implements Menu, Comprar, Autenticavel {
 
     public boolean checarautorizacao(ArrayList<Cliente> listacliente) {
         for (Cliente cliente : listacliente) {
-            if(cliente.getLogin().equals(login))return true;
+            if(Cliente.getLogin().equals(login))return true;
         }
         return false;
 
     }
 
-    public int menu(Cliente cliente) {
+    public int menu(Cliente cliente,Show show) {
         int aux, opcao = 0;
 
         do {
@@ -68,7 +74,7 @@ public class Cliente extends Usuario implements Menu, Comprar, Autenticavel {
                     cliente.comprardiscovinil();
                     break;
                 case 4:
-                    cliente.compraringresso();
+                    cliente.compraringresso(show);
                     break;
             }
         } while (opcao != 0);
@@ -81,12 +87,8 @@ public class Cliente extends Usuario implements Menu, Comprar, Autenticavel {
         int aux;
 
         Cliente.nome = JOptionPane.showInputDialog(null, "Insira o seu nome");
-        //aux = Integer.parseInt(JOptionPane.showInputDialog(null, "Insira o seu CPF(Sem pontos ou hífens) "));
-        //while (aux <= 0) {
-        //  aux = Integer.parseInt(JOptionPane.showInputDialog(null, "Valor incorreto, insira novamente"));
-        // Cliente.cpf = aux;
-        //}
         Cliente.email = JOptionPane.showInputDialog(null, "Insira o seu e-mail");
         Cliente.login = JOptionPane.showInputDialog(null, "Insira o seu login");
     }
+
 }

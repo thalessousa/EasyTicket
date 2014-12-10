@@ -33,9 +33,10 @@ public class Administrador extends Usuario implements Menu, Autenticavel {
         super.imprimirlistabandas();
     }
 
-    public void imprimirlistashows(Banda banda) {
+    @Override
+    public void imprimirlistashows() {
         super.imprimirlistashows();
-        banda.imprimirdados();
+        
     }
 
     @Override

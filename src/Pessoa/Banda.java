@@ -11,9 +11,9 @@ public class Banda {
     public Banda() {
         this.integrantes = 0;
         this.quantidadedediscos = 0;
-        this.genero = "null";
-        this.gravadora = "null";
-        this.nome = "null";
+        this.genero = "";
+        this.gravadora = "";
+        this.nome = "";
     }
 
     public Banda(int integrantes, int quantidadedediscos, String genero, String gravadora, String nome) {
@@ -26,30 +26,29 @@ public class Banda {
 
     public void setAtributos() {
 
-        int aux=0;
+        int aux = 0;
 
         this.nome = JOptionPane.showInputDialog(null, "Insira o nome da banda ");
-        while (this.nome.contains("[0123456789]")) {
+        while (validar_nome(nome) == false) {
             this.nome = JOptionPane.showInputDialog(null, "Nome da banda invalido,insira novamente");
         }
         this.gravadora = JOptionPane.showInputDialog(null, "Insira a gravadora da banda ");
-        while (this.gravadora.contains("[0123456789]")) {
+        while (validar_nome(gravadora) == false) {
             this.gravadora = JOptionPane.showInputDialog(null, "Nome de gravadora invalido,insira novamente");
         }
         this.genero = JOptionPane.showInputDialog(null, "Insira o genero da banda ");
-        while (this.genero.contains("[0123456789]")) {
+        while (validar_nome(genero) == false) {
             this.genero = JOptionPane.showInputDialog(null, "Genero invalido,insira novamente");
         }
         aux = Integer.parseInt(JOptionPane.showInputDialog(null, "Insira a quantidade de integrantes da banda "));
-        while (aux <= 0) {
-            aux = Integer.parseInt(JOptionPane.showInputDialog(null, "Valor incorreto, insira novamente"));
-            this.integrantes = aux;
-        }
+        this.integrantes = aux;
+
         aux = Integer.parseInt(JOptionPane.showInputDialog(null, "Insira a quantidade de discos lançados da banda "));
-        while (aux <= 0) {
-            aux = Integer.parseInt(JOptionPane.showInputDialog(null, "Valor incorreto, insira novamente"));
-            this.quantidadedediscos = aux;
-        }
+        this.quantidadedediscos = aux;
+    }
+
+    public boolean validar_nome(String arg3) {
+        return arg3.matches("[a-zA-Z]{1,10}(\\s)[a-zA-Z]{1,10}");
     }
 
     public void imprimirdados() {

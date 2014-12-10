@@ -52,4 +52,6 @@ public abstract class Usuario implements Menu,Autenticavel {
     public boolean checarautorizacao() {
         return true;
     }
+
+    
 }

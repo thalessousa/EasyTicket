@@ -9,7 +9,7 @@ public class Show {
 
     private static ArrayList<Banda> listabandas;
     private String endereco, nome, localparaestacionar;
-    private double precoingresso, capacidade;
+    public double precoingresso, capacidade;
     private int tamanhoestacionamento;
 
     private enum locaisdevenda {
@@ -43,43 +43,50 @@ public class Show {
         int aux;
 
         this.nome = JOptionPane.showInputDialog("Insira o nome do local ");
+        while (validar_nome(nome) == false) {
+            this.nome = JOptionPane.showInputDialog(null, "Nome do local invalido,insira novamente");
+        }
 
         this.endereco = JOptionPane.showInputDialog("Insira o endereço do show ");
-        aux = Integer.parseInt(JOptionPane.showInputDialog("Insira o preço do ingresso do show "));
-        while (aux < 0) {
-            aux = Integer.parseInt(JOptionPane.showInputDialog("Valor incorreto, insira novamente"));
+        while (validar_nome(endereco) == false) {
+            this.endereco = JOptionPane.showInputDialog(null, "Nome da banda invalido,insira novamente");
         }
+
+        aux = Integer.parseInt(JOptionPane.showInputDialog("Insira o preço do ingresso do show "));
         this.precoingresso = aux;
 
         this.localparaestacionar = JOptionPane.showInputDialog("Existe local para estacionar? ");
+
         if (this.localparaestacionar.equalsIgnoreCase("sim")) {
             aux = Integer.parseInt(JOptionPane.showInputDialog("Insira a quantidade de vagas no estacionamento "));
-            while (aux < 0) {
-                aux = Integer.parseInt(JOptionPane.showInputDialog("Valor incorreto, insira novamente"));
-            }
             this.tamanhoestacionamento = aux;
-        }
-        while (this.tamanhoestacionamento <= 0) {
-            aux = Integer.parseInt(JOptionPane.showInputDialog("Numero invalido,insira novamente"));
-            this.tamanhoestacionamento = aux;
+
         }
 
         aux = Integer.parseInt(JOptionPane.showInputDialog("Insira a capacidade do local "));
-        while (aux < 0) {
-            aux = Integer.parseInt(JOptionPane.showInputDialog("Valor incorreto, insira novamente"));
-        }
         this.capacidade = aux;
-        
-        ingresso.data = JOptionPane.showInputDialog("Insira a data do show ");
 
+        ingresso.data = JOptionPane.showInputDialog("Insira a data do show ");
+        while (validar_data(ingresso.data) == false) {
+            ingresso.data = JOptionPane.showInputDialog("Data incorreta, insira novamente");
+        }
+
+    }
+
+    public boolean validar_nome(String arg3) {
+        return arg3.matches("[a-zA-Z]{1,10}(\\s)[a-zA-Z]{1,10}");
+    }
+
+    public boolean validar_data(String arg3) {
+        return arg3.matches("[0-9]{2}?(/)[0-9]{2}?(/)[0-9]{4}");
     }
 
     public void imprimirdados() {
         JOptionPane.showMessageDialog(null, this.toString());
     }
 
-
-    public String toString(Ingresso ingresso) {
-        return "Show\n " + "Endereco = " + endereco + "\n Local = "  + nome + "\n Data do show = "+ingresso.data+"\n Possui estacionamento? = " + localparaestacionar + "\n Preço do Ingresso = " + precoingresso + "\n Tamanho do Estacionamento = " + tamanhoestacionamento + "\n Capacidade = " + capacidade + "\n Venda = " + venda.ONLINE + " , " + venda.QUIOSQUE + " , " + venda.TICKETMASTER + "\n Formas de Pagamento = " + pagamento.AMEX + " , " + pagamento.DINHEIRO + " , " + pagamento.MASTERCARD + " , " + pagamento.PAYPAL + " , " + pagamento.VISA;
+    @Override
+    public String toString() {
+        return "Show\n " + "Endereco = " + endereco + "\n Local = " + nome + "\n Possui estacionamento? = " + localparaestacionar + "\n Preço do Ingresso = " + precoingresso + "\n Tamanho do Estacionamento = " + tamanhoestacionamento + "\n Capacidade = " + capacidade + "\n Venda = " + venda.ONLINE + " , " + venda.QUIOSQUE + " , " + venda.TICKETMASTER + "\n Formas de Pagamento = " + pagamento.AMEX + " , " + pagamento.DINHEIRO + " , " + pagamento.MASTERCARD + " , " + pagamento.PAYPAL + " , " + pagamento.VISA;
     }
 }

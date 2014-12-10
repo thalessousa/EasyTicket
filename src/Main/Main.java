@@ -16,7 +16,7 @@ public class Main {
         Show show = new Show();
         Banda banda = new Banda();
         Ingresso ingresso = new Ingresso();
-        JOptionPane.showMessageDialog(null, "Bem vindo!");
+        JOptionPane.showMessageDialog(null, "Bem vindo ao Easy Ticket!");
         do {
             opcao = Integer.valueOf(JOptionPane.showInputDialog(null, "0 - Sair\n1 - Area de administracao\n2 - Moderação\n3 - Login cliente"));
             switch (opcao) {
@@ -29,7 +29,7 @@ public class Main {
                     moderador.menu(moderador,cliente);
                     break;
                 case 3:
-                    cliente.menu(cliente);
+                    cliente.menu(cliente,show);
                     break;
             }
         } while (opcao != 0);
