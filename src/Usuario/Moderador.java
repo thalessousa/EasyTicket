@@ -4,12 +4,9 @@ import javax.swing.JOptionPane;
 
 public class Moderador extends Usuario implements Menu, Autenticavel {
 
-    public Moderador() {
-        this.senha = 4154;
-    }
+    private static final int SENHAFINAL = 4500;
 
-    public Moderador(int senha, int login) {
-        super(senha);
+    public Moderador() {
 
     }
 
@@ -21,21 +18,19 @@ public class Moderador extends Usuario implements Menu, Autenticavel {
 
     @Override
     public boolean checarautorizacao() {
-        if (senha != this.senha) {
-            return false;
-        } else {
-            return true;
-        }
+        return SENHAFINAL == this.senha;
     }
 
     public int menu(Moderador moderador, Cliente cliente) {
 
         int aux, opcao = 0;
-
         do {
-            senha = Integer.parseInt(JOptionPane.showInputDialog(null, "Insira a senha do moderador ou 0 para sair"));
+            senha = Integer.parseInt(JOptionPane.showInputDialog(null, "Insira novamente a senha do moderador ou 0 para sair"));
+            if (senha == 0) {
+                return 0;
+            }
         } while (checarautorizacao() == false);
-        
+
         do {
             opcao = Integer.parseInt(JOptionPane.showInputDialog(null, "0 - Sair\n1 - Criar cliente  "));
             switch (opcao) {

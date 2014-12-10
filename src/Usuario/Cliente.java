@@ -1,6 +1,5 @@
 package Usuario;
 
-import com.sun.org.apache.bcel.internal.generic.InstructionConstants;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -13,10 +12,10 @@ public class Cliente extends Usuario implements Menu, Comprar, Autenticavel {
     }
 
     public Cliente(String nome, int cpf, int senha, int login, String email) {
-        Cliente.login = null;
-        Cliente.nome = nome;
-        Cliente.cpf = cpf;
-        Cliente.email = email;
+        Cliente.login = "";
+        Cliente.nome = "";
+        Cliente.cpf = 0;
+        Cliente.email = "";
     }
 
     public static String getLogin() {

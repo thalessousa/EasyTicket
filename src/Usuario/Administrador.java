@@ -2,29 +2,30 @@ package Usuario;
 
 import Espaço.Show;
 import Pessoa.Banda;
+import Produto.Ingresso;
 import javax.swing.JOptionPane;
 
 public class Administrador extends Usuario implements Menu, Autenticavel {
 
     private int opcao;
+    private static final int SENHAFINAL = 5540;
 
     public Administrador() {
-        this.senha = 5540;
-    }
 
-    public Administrador(int senha) {
-        super(senha);
-        this.senha = 5540;
     }
 
     public static void adicionarbanda(Banda banda) {
+        int f = 0;
         banda.setAtributos();
-        listabandas.add(banda);
+        listabandas.add(f, banda);
+        f++;
     }
 
-    public static void adicionarshow(Show show) {
-        show.setAtributos();
-        listashows.add(show);
+    public static void adicionarshow(Show show,Ingresso ingresso) {
+        int j = 0;
+        show.setAtributos(ingresso);
+        listashows.add(j, show);
+        j++;
     }
 
     @Override
@@ -39,18 +40,17 @@ public class Administrador extends Usuario implements Menu, Autenticavel {
 
     @Override
     public boolean checarautorizacao() {
-        if (senha == this.senha) {
-            return true;
-        } else {
-            return false;
-        }
+        return SENHAFINAL == this.senha;
     }
 
-    public int menu(Administrador adm, Banda banda, Show show) {
+    public int menu(Administrador adm, Banda banda, Show show,Ingresso ingresso) {
         int aux, opcao = 0;
 
         do {
             senha = Integer.parseInt(JOptionPane.showInputDialog(null, "Insira a senha do administrador ou 0 para sair"));
+            if (senha == 0) {
+                return 0;
+            }
         } while (checarautorizacao() == false);
 
         do {
@@ -62,7 +62,7 @@ public class Administrador extends Usuario implements Menu, Autenticavel {
                     Administrador.adicionarbanda(banda);
                     break;
                 case 2:
-                    Administrador.adicionarshow(show);
+                    Administrador.adicionarshow(show,ingresso);
                     break;
                 case 3:
                     adm.imprimirlistabandas();

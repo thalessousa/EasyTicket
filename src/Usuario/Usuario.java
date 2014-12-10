@@ -3,6 +3,8 @@ package Usuario;
 import Pessoa.Banda;
 import java.util.ArrayList;
 import Espaço.Show;
+import Produto.Ingresso;
+import javax.swing.JOptionPane;
 
 public abstract class Usuario implements Menu,Autenticavel {
 
@@ -21,17 +23,17 @@ public abstract class Usuario implements Menu,Autenticavel {
 
         public void imprimirlistabandas(){
             for (int i = 0; i < listabandas.size(); i++) {
-                System.out.println(listabandas.get(i));
+                JOptionPane.showMessageDialog(null,listabandas.get(i));
             }
             }
         public void imprimirlistashows(){
             for (int i = 0; i < listashows.size(); i++) {
-                System.out.println(listashows.get(i));
+                JOptionPane.showMessageDialog(null,(listashows.get(i)));
             }
             }
-        public static void adicionarshow(Show novo) {
-            novo.setAtributos();
-            listashows.add(novo);
+        public static void adicionarshow(Show show,Ingresso ingresso) {
+            show.setAtributos(ingresso);
+            listashows.add(show);
 
 	    }
 	public static void adicionarbanda(Banda nova) {

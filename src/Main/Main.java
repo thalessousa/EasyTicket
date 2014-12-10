@@ -3,6 +3,7 @@ package Main;
 import Usuario.*;
 import Pessoa.Banda;
 import Espaço.Show;
+import Produto.Ingresso;
 import javax.swing.JOptionPane;
 
 public class Main {
@@ -14,6 +15,7 @@ public class Main {
         Moderador moderador = new Moderador();
         Show show = new Show();
         Banda banda = new Banda();
+        Ingresso ingresso = new Ingresso();
         JOptionPane.showMessageDialog(null, "Bem vindo!");
         do {
             opcao = Integer.valueOf(JOptionPane.showInputDialog(null, "0 - Sair\n1 - Area de administracao\n2 - Moderação\n3 - Login cliente"));
@@ -21,7 +23,7 @@ public class Main {
                 case 0:
                     break;
                 case 1:
-                    adm.menu(adm,banda,show);
+                    adm.menu(adm,banda,show,ingresso);
                     break;
                 case 2:
                     moderador.menu(moderador,cliente);

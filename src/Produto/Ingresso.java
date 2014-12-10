@@ -1,23 +1,34 @@
 package Produto;
 
+import Espaço.Show;
+import javax.swing.JOptionPane;
 public class Ingresso extends Produto {
 
-	private int data;
-	private String banda;
-	private String local;
-	private double preco;
-	private final int IDVALIDACAO;
+	public String data;
+	public final int IDVALIDACAO;
 
-    public Ingresso(int IDVALIDACAO) {
+    public Ingresso() {
+        this.data = "";
         this.IDVALIDACAO = 6829598;
     }
 
-    public Ingresso(int data, String banda, String local, double preco, int IDVALIDACAO, String nome) {
-        super(nome);
+    public void setData(String data) {
         this.data = data;
-        this.banda = banda;
-        this.local = local;
-        this.preco = preco;
-        this.IDVALIDACAO = 6829598;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public int getIDVALIDACAO() {
+        return IDVALIDACAO;
+    }
+    
+    public void imprimirdados(){
+        JOptionPane.showMessageDialog(null, " " + this.toString());
+    }
+    @Override
+    public String toString() {
+        return "Ingresso\n Data = " + data +"\n ID VALIDAÇÃO=" + IDVALIDACAO;
     }
 }

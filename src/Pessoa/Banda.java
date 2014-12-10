@@ -59,6 +59,6 @@ public class Banda {
 
     @Override
     public String toString() {
-        return "Banda{" + "Nome = " + nome + ",\n Quantida de Discos = " + quantidadedediscos + ",\n Genero = " + genero + ",\n Gravadora = " + gravadora + ",\n Integrantes = " + integrantes + '}';
+        return "Banda\n" + "Nome = " + nome + ",\n Quantida de Discos = " + quantidadedediscos + ",\n Genero = " + genero + ",\n Gravadora = " + gravadora + ",\n Integrantes = " + integrantes + '}';
     }
 }
